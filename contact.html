@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      padding-top: 70px;
+      font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/back2.jpeg);
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', 'Roboto', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background-color: #000;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .navbar .navbar-brand img {
+      max-height: 56px;
+      width: auto;
+    }
+
+    .navbar .navbar-nav > li > a {
+      color: #fff;
+    }
+
+    .navbar .navbar-nav > li > a:hover {
+      color: #53fd53;
+    }
+
+    /* center main nav links */
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
+
+    .navbar .navbar-nav {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-nav > li {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-toggle .icon-bar {
+      background-color: #fff;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 20px rgba(83, 253, 83, 0.4);
+    }
+
+    /* Contact Header */
+    .contact-header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(83, 253, 83, 0.1) 100%);
+      border-radius: 15px;
+      border: 2px solid rgba(83, 253, 83, 0.3);
+    }
+
+    .contact-header h1 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #53fd53;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(83, 253, 83, 0.3);
+    }
+
+    .contact-header p {
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Contact Cards */
+    .contact-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(83, 253, 83, 0.2);
+      border-radius: 15px;
+      padding: 35px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      margin-bottom: 30px;
+    }
+
+    .contact-card:hover {
+      border-color: #53fd53;
+      box-shadow: 0 12px 40px rgba(83, 253, 83, 0.25);
+      transform: translateY(-5px);
+    }
+
+    .contact-card h3 {
+      color: #53fd53;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid rgba(83, 253, 83, 0.3);
+      padding-bottom: 15px;
+    }
+
+    /* Form Styling */
+    .form-group label {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      border: 2px solid rgba(83, 253, 83, 0.2);
+      background-color: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      padding: 12px 15px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #53fd53;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(83, 253, 83, 0.3), inset 0 0 8px rgba(83, 253, 83, 0.1);
+      outline: none;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+      border-color: transparent;
+      color: #000;
+      font-weight: 700;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 4px 15px rgba(83, 253, 83, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #63ff63 0%, #35d835 100%);
+      color: #000;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(83, 253, 83, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px);
+    }
+
+    /* Contact Info Section */
+    .contact-info {
+      margin-top: 0;
+      padding: 35px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(83, 253, 83, 0.2);
+      border-radius: 15px;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      height: 100%;
+    }
+
+    .contact-info:hover {
+      border-color: #53fd53;
+      box-shadow: 0 12px 40px rgba(83, 253, 83, 0.25);
+      transform: translateY(-5px);
+    }
+
+    .contact-info h4 {
+      color: #53fd53;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-info h4:not(:first-of-type) {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 2px solid rgba(83, 253, 83, 0.2);
+    }
+
+    .contact-info p {
+      margin: 12px 0;
+      line-height: 1.8;
+      color: #b3d9b3;
+      font-size: 14px;
+    }
+
+    .contact-info p strong {
+      color: #53fd53;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .contact-info a {
+      color: #53fd53;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .contact-info a:hover {
+      color: #fff;
+      transform: translateX(5px);
+      text-decoration: none;
+    }
+
+    .contact-info .fa {
+      font-size: 18px;
+    }
+    .footer {
+    margin-top: 80px;
+    width: 100%;
+    padding: 60px 1.6% 40px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
+    color: #fff;
+    border-top: 3px solid rgba(83, 253, 83, 0.4);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(83, 253, 83, 0.2);
+    display: flex;
+    text-align: left;
+    gap: 40px;
+    overflow: hidden;
+  }
+
+  .footer .footer-col {
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+
+  .footer h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #53fd53;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .footer h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #53fd53 0%, transparent 100%);
+    border-radius: 2px;
+  }
+
+  .footer a {
+    display: block;
+    color: #a8d5a8;
+    margin-bottom: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .footer a:hover {
+    color: #53fd53;
+    padding-left: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Social Media Icons */
+  .social-media {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .social-media a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(83, 253, 83, 0.15) 0%, rgba(83, 253, 83, 0.08) 100%);
+    border: 2px solid rgba(83, 253, 83, 0.4);
+    color: #53fd53;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(83, 253, 83, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .social-media a:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(83, 253, 83, 0.2), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .social-media a:hover:before {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-media a i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+  }
+
+  .social-media a:hover {
+    border-color: #53fd53;
+    color: #000;
+    transform: translateY(-6px) rotate(5deg) scale(1.12);
+    box-shadow: 0 12px 30px rgba(83, 253, 83, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .social-media a:hover i {
+    transform: scale(1.2);
+  }
+
+  .social-media a:active {
+    transform: translateY(-2px) rotate(5deg) scale(1.06);
+    box-shadow: 0 6px 15px rgba(83, 253, 83, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .social-media a[href*="facebook"]:hover {
+    background: linear-gradient(135deg, #1877F2 0%, #0A66C2 100%);
+    border-color: #1877F2;
+  }
+
+  .social-media a[href*="twitter"]:hover {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1a8917 100%);
+    border-color: #1DA1F2;
+  }
+
+  .social-media a[href*="instagram"]:hover {
+    background: linear-gradient(135deg, #E1306C 0%, #405DE6 100%);
+    border-color: #E1306C;
+  }
+
+  .social-media a[href*="whatsapp"]:hover {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-color: #25D366;
+  }
+
+  @keyframes iconGlow {
+    0% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(83, 253, 83, 0.4), 0 4px 15px rgba(83, 253, 83, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+  }
+
+  .social-media a {
+    animation: iconGlow 3s ease-in-out infinite;
+  }
+
+  .social-media a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .social-media a:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .social-media a:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  .footer .social {
+    margin-top: 12px;
+  }
+
+  .footer .social a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 20px;
+    color: #16b33d;
+  }
+
+  .footer .social a:hover {
+    color: #53fd53;
+  }
+  .footer .social-icons a{
+    font-size: 30px;
+    float: left;
+
+  }
+  .footer .social-icons a:hover{
+    color: white;
+  }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img class="logo" src="images/logo1.jpeg">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="estate.html">Home</a></li>
+          <li><a href="cartegory.html">Categories</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="potfolio.html">Potfolio</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="cart.html">Cartegories</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Others</li>
+              <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+              <li><a href="gallary.html">Gallary</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="glyphicon glyphicon-shopping-cart " href="cart.html">Cart</a>
+          </li>
+          <li><a class="glyphicon glyphicon-user" href="login.html"></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="contact-header">
+      <h1>Get in Touch</h1>
+      <p class="lead">Have a question or want to collaborate? Send a message and we'll get back within 24 hours.</p>
+    </header>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="contact-card">
+          <h3>Send a Message</h3>
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" class="form-control" placeholder="Subject" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-control" rows="5" placeholder="Type your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="contact-info">
+          <h4>Reach Us</h4>
+          <p><strong>Email:</strong> flowerhub@gmail.com</p>
+          <p><strong>Phone:</strong> +256 754 411-788</p>
+          <p><strong>Address:</strong> P.O.BOX 123 A</p>
+
+          <h4>Follow Us</h4>
+          <div>
+            <a href="https://www.facebook.com/flowerhub" target="_blank"><i class="fa fa-facebook"></i> Facebook</a><br />
+            <a href="https://www.twitter.com/flowerhub" target="_blank"><i class="fa fa-twitter"></i> Twitter</a><br />
+            <a href="https://www.instagram.com/flowerhub" target="_blank"><i class="fa fa-instagram"></i> Instagram</a><br />
+            <a href="https://wa.me/256754411788" target="_blank"><i class="fa fa-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Contact</h3>
+              <a href="tel:+256754411788"><i class="fa fa-phone"></i> Phone: +256 754 411 788</a>
+              <a href="mailto:flowerhub@gmail.com"><i class="fa fa-envelope"></i> Email: flowerhub@gmail.com</a>
+              <a href="#"><i class="fa fa-map-marker"></i> Address: P.O.BOX 123, Acacia Avenue, Kampala(U)</a>
+          </div>
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Menu</h3>
+            <a href="estate.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallary.html">Gallery</a>
+            <a href="cart.html">Categories</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+  <!-- Newsletter Section -->
+      <div class="row newsletter-section">
+        <div class="col-md-8">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Get the latest updates on new flower arrivals, special offers, and gardening tips delivered to your inbox!</p>
+        </div>
+        <div class="col-md-4">
+          <form class="form-inline" role="form">
+            <div class="form-group" style="width: 100%;">
+              <input type="email" class="form-control" style="width: 70%; margin-right: 5px;" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-success">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+          <div class="col-sm-12 col-md-4 footer-col text-right">
+            <h3>© 2026 Flowerhub.com</h3>
+            <p>Helping nature, one tree at a time.</p>
+            <div class="social-media">
+              <a href="https://www.facebook.com/flowerhub" target="_blank" title="Follow us on Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="https://www.twitter.com/flowerhub" target="_blank" title="Follow us on Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/flowerhub" target="_blank" title="Follow us on Instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/256754411788" target="_blank" title="Chat with us on WhatsApp">
+                <i class="fa fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+    crossorigin="anonymous"></script>
+  <script src="js/bootstrap.js"></script>
+</body>
+</html>

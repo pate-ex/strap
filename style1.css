@@ -1,0 +1,236 @@
+.btn-primary{
+    background-color: black;
+    border-color: greenyellow;
+    margin-left: 500px ;
+    margin-top: 10px;
+}
+h1{
+    text-align: center;
+}
+.jumbotron{
+    margin-left: -120px;
+    width: 120%;
+}
+.jumbotron p{
+    font-size: 25px;
+}
+.slide{
+    width: 70%;
+}
+.col-md-4 p{
+    text-align: justify;
+    font-size: 25px;
+
+
+}
+.panel-group img{
+    width: 50%;
+    height: 50%;
+   
+}
+.footer {
+    margin-top: auto;
+    width: 100%;
+    padding: 40px 1.6%;
+    background: linear-gradient(180deg, pink 0%, #1a1a1a 0 100%);
+    color:yellow;
+    display: flex;
+    text-align: left;
+    border-top: 3px solid black;
+    gap: 40px;
+}
+  
+.footer .div {
+    text-align: left;
+}
+.col-1 {
+    flex-grow: 0.2;
+}
+
+.col-3 {
+    flex-grow: 0.2;
+}
+  
+.footer .div h3 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: #53fd53;
+    font-size: 18px;
+}
+  
+.col-1 a {
+    display: block;
+    color: orange;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+  
+.col-3 a {
+    display: block;
+    color: #16b33d;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+.col-3:hover a {
+    color: #53fd53;
+    padding-left: 10px;
+    transition: 0.3s ease-in-out;
+}
+  
+.col-3 p {
+    margin-top: 20px;
+    color: #888;
+    font-size: 14px;
+}
+.navbar{
+    height: 10%;
+}
+.container{
+  justify-content: right;
+}
+span{
+    color: yellow;
+}
+.form-container{
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    width: 420px;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 500px;
+    margin-bottom: 40px;
+}
+ h2{
+    color: #fff;
+    position: relative;
+    margin-bottom: 20px;
+ }
+ .input-box {
+    position: relative;
+    margin: 20px 0;
+ }
+ .input-box input{
+    width: 100%;
+    padding: 12px 15px;
+    background: none;
+    border: none;
+    outline: none;
+    color: green;
+    font-size: 18px;
+    border-bottom: 2px solid orange;
+    transition: 0.4s;
+ }
+ .input-box:focus{
+    border-color: #00ffff;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+
+ }
+ .input-box span{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    color: ornage;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.4s;
+    transform: translateY(-50%);
+ }
+ .input-box input:focus+span,
+ .input-box input:not(:placeholder-shown)+span{
+    top:5px;
+    font-size: 12px;
+    color: orange;
+ }
+ .submit-btn {
+    background: linear-gradient(90deg, orange,yellow);
+    border: none;
+    border-radius: 25px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 10px;
+    padding: 12px 30px;
+    
+ }
+ .submit-btn:hover{
+    background: linear-gradient(90deg, #00ff80,orange);
+    box-shadow: 0 5px 15px #fff;
+ }
+
+ .form-container{
+    background: rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px green;
+    width: 420px;
+    text-align: center;
+ }
+ h2{
+    color: #fff;
+    position: relative;
+    margin-bottom: 20px;
+ }
+ .input-box {
+    position: relative;
+    margin: 30px 0;
+ }
+ .input-box input{
+    width: 100%;
+    padding: 12px 15px;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    border-bottom: 2px solid green;
+    transition: 0.4s;
+ }
+ .input-box:focus{
+    border-color: #00ffff;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+
+ }
+ .input-box span{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    color: green;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.4s;
+    transform: translateY(-50%);
+ }
+ .input-box input:focus+span,
+ .input-box input:not(:placeholder-shown)+span{
+    top:5px;
+    font-size: 12px;
+    color: green;
+ }
+ .submit-btn {
+    background: linear-gradient(90deg, #00ffff, green);
+    border: none;
+    border-radius: 25px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 10px;
+    padding: 12px 30px;
+    
+ }
+ .submit-btn:hover{
+    background: linear-gradient(90deg, yellow, green);
+    box-shadow: 0 5px 15px yellow;
+
+ }

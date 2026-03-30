@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Checkout</title>
+<style>
+  body {
+    padding-top: 70px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/back2.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+
+  .navbar {
+      background-color: black;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+             
+    .navbar .navbar-brand img {
+      max-height: 56px;
+      width: auto;
+    }
+
+    .navbar .navbar-nav > li > a {
+      color: white;
+    }
+
+    .navbar .navbar-nav > li > a:hover {
+      color: #53fd53;
+    }
+
+    /* center main nav links */
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
+
+    .navbar .navbar-nav {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-nav > li {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-toggle .icon-bar {
+      background-color: #fff;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 20px rgba(83, 253, 83, 0.4);
+    }
+
+  /* Medium-size carousel styling */
+  .carousel {
+    max-height: 520px;
+    overflow: hidden;
+
+  }
+
+  .carousel .item img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .carousel .item img {
+      height: 320px;
+    }
+  }
+
+  .container {
+    font-family: 'arial';
+  }
+
+  .panel-heading img {
+    border-radius: 20px;
+    width: 30%;
+  }
+
+  .footer {
+    margin-top: 80px;
+    width: 100%;
+    padding: 60px 1.6% 40px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
+    color: #fff;
+    border-top: 3px solid rgba(83, 253, 83, 0.4);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(83, 253, 83, 0.2);
+    display: flex;
+    text-align: left;
+    gap: 40px;
+    overflow: hidden;
+  }
+
+  .footer .footer-col {
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+
+  .footer h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #53fd53;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .footer h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #53fd53 0%, transparent 100%);
+    border-radius: 2px;
+  }
+
+  .footer a {
+    display: block;
+    color: #a8d5a8;
+    margin-bottom: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .footer a:hover {
+    color: #53fd53;
+    padding-left: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Social Media Icons */
+  .social-media {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .social-media a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(83, 253, 83, 0.15) 0%, rgba(83, 253, 83, 0.08) 100%);
+    border: 2px solid rgba(83, 253, 83, 0.4);
+    color: #53fd53;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(83, 253, 83, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .social-media a:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(83, 253, 83, 0.2), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .social-media a:hover:before {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-media a i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+  }
+
+  .social-media a:hover {
+    border-color: #53fd53;
+    color: #000;
+    transform: translateY(-6px) rotate(5deg) scale(1.12);
+    box-shadow: 0 12px 30px rgba(83, 253, 83, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .social-media a:hover i {
+    transform: scale(1.2);
+  }
+
+  .social-media a:active {
+    transform: translateY(-2px) rotate(5deg) scale(1.06);
+    box-shadow: 0 6px 15px rgba(83, 253, 83, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .social-media a[href*="facebook"]:hover {
+    background: linear-gradient(135deg, #1877F2 0%, #0A66C2 100%);
+    border-color: #1877F2;
+  }
+
+  .social-media a[href*="twitter"]:hover {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1a8917 100%);
+    border-color: #1DA1F2;
+  }
+
+  .social-media a[href*="instagram"]:hover {
+    background: linear-gradient(135deg, #E1306C 0%, #405DE6 100%);
+    border-color: #E1306C;
+  }
+
+  .social-media a[href*="whatsapp"]:hover {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-color: #25D366;
+  }
+
+  @keyframes iconGlow {
+    0% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(83, 253, 83, 0.4), 0 4px 15px rgba(83, 253, 83, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+  }
+
+  .social-media a {
+    animation: iconGlow 3s ease-in-out infinite;
+  }
+
+  .social-media a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .social-media a:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .social-media a:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  .footer .social {
+    margin-top: 12px;
+  }
+
+  .footer .social a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 20px;
+    color: #16b33d;
+  }
+
+  .footer .social a:hover {
+    color: #53fd53;
+  }
+  .footer .social-icons a{
+    font-size: 30px;
+    float: left;
+
+  }
+  .footer .social-icons a:hover{
+    color: white;
+  }
+  .row{
+    margin-top: 20px;
+  }
+
+  /* Checkout-specific Page Styling */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    font-family: 'Arial', sans-serif;
+    color: #2a2a2a;
+  }
+
+  .container h2 {
+    color: #53fd53;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+  }
+
+  .breadcrumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(83, 253, 83, 0.2);
+    padding: 12px 20px;
+  }
+
+  .breadcrumb > li + li:before {
+    color: #53fd53;
+  }
+
+  .breadcrumb > li > a {
+    color: #53fd53;
+    transition: all 0.3s ease;
+  }
+
+  .breadcrumb > li > a:hover {
+    color: #fff;
+  }
+
+  .breadcrumb > li.active {
+    color: #b3d9b3;
+  }
+
+  .well {
+    background: rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid rgba(83, 253, 83, 0.2);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .well strong {
+    color: #53fd53;
+    font-weight: 700;
+  }
+
+  .well a {
+    color: #53fd53;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+  }
+
+  .well a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .panel {
+    border-radius: 12px;
+    border: 2px solid rgba(83, 253, 83, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+    margin-bottom: 25px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .panel:hover {
+    box-shadow: 0 12px 35px rgba(83, 253, 83, 0.15);
+    border-color: rgba(83, 253, 83, 0.35);
+  }
+
+  .panel-heading {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    color: #000;
+    border-radius: 10px 10px 0 0;
+    padding: 20px 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    border: none;
+  }
+
+  .panel-heading h4 {
+    color: #000;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .panel-body {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 28px;
+    border-radius: 0 0 10px 10px;
+    border-top: none;
+  }
+
+  .form-group label {
+    color: #2c2c2c;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .form-control {
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    padding: 12px 15px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+  }
+
+  .form-control:focus {
+    border-color: #53fd53;
+    box-shadow: 0 0 0 3px rgba(83, 253, 83, 0.15);
+    background: #fff;
+    outline: none;
+  }
+
+  .form-control::placeholder {
+    color: #999;
+    font-size: 14px;
+  }
+
+  .checkbox label,
+  .radio label {
+    color: #2c2c2c;
+    font-weight: 500;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .checkbox label:hover,
+  .radio label:hover {
+    color: #53fd53;
+  }
+
+  .checkbox input[type="checkbox"],
+  .radio input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+
+  .list-group-item {
+    border: none;
+    color: #333;
+    font-size: .95rem;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(83, 253, 83, 0.1);
+    font-weight: 500;
+  }
+
+  .list-group-item:last-child {
+    border-bottom: none;
+  }
+
+  .list-group-item span.pull-right {
+    color: #53fd53;
+    font-weight: 700;
+  }
+
+  .list-group-item.text-success {
+    background: rgba(83, 253, 83, 0.1);
+    border-bottom: 2px solid #53fd53;
+    color: #53fd53;
+    font-size: 16px;
+  }
+
+  .panel.panel-default.order-review {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 100%);
+    border: 2px solid rgba(83, 253, 83, 0.25);
+    position: sticky;
+    top: 100px;
+  }
+
+  .panel.panel-default.order-review .panel-heading {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    color: #000;
+    border-bottom: none;
+  }
+
+  .panel.panel-default.order-review .panel-body {
+    background: rgba(255, 255, 255, 0.97);
+  }
+
+  .btn-success {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    border: none;
+    border-color: transparent;
+    color: #000;
+    font-weight: 700;
+    padding: 13px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-size: 14px;
+  }
+
+  .btn-success:hover {
+    background: linear-gradient(135deg, #63ff63 0%, #35d835 100%);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(83, 253, 83, 0.4);
+  }
+
+  .btn-success:active {
+    transform: translateY(0px);
+  }
+
+  .btn-default {
+    background: transparent;
+    border: 2px solid #53fd53;
+    color: #53fd53;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-size: 14px;
+  }
+
+  .btn-default:hover {
+    background: #53fd53;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(83, 253, 83, 0.3);
+  }
+
+  .btn-block {
+    width: 100%;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .btn-lg {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+
+  .required {
+    color: #ff4444;
+    font-weight: 700;
+    margin-left: 4px;
+  }
+
+  .label {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 6px;
+  }
+
+  .label-success {
+    background: #53fd53;
+    color: #000;
+  }
+
+  .label-info {
+    background: #17a2b8;
+    color: #fff;
+  }
+
+  .label-warning {
+    background: #ffc107;
+    color: #000;
+  }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img class="logo" src="images/logo1.jpeg">
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="estate.html">Home</a></li>
+            <li><a href="cartegory.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="potfolio.html">Potfolio</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="cart.html">Cartegories</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Others</li>
+                <li><a href="login.html">Login</a></li>
+                  <li><a href="signup.html">Signup</a></li>
+                <li><a href="gallary.html">Gallary</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+              </ul>
+            </li>
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="glyphicon glyphicon-shopping-cart " href="cart.html">Cart</a>
+            </li>
+            <li><a class="glyphicon glyphicon-user" href="login.html"></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!-- Breadcrumb -->
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="estate.html"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+            <li class="active"><i class="fa fa-check-circle"></i> Checkout</li>
+        </ol>
+        <div class="well">
+          <strong><i class="fa fa-link"></i> Quick Navigation:</strong>
+          <a href="estate.html">Home</a> · 
+          <a href="cartegory.html">Categories</a> · 
+          <a href="cart.html">Cart</a> · 
+          <a href="checkout.html">Checkout</a> · 
+          <a href="about.html">About</a> · 
+          <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2><i class="fa fa-lock"></i> Complete Your Order</h2>
+                <form method="POST" action="#" id="checkoutForm">
+                    <!-- Shipping Address -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><span class="label label-success">1</span> Shipping Address</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Street Address <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="address" name="address" placeholder="123 Main Street" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="city">City <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="city" name="city" placeholder="Kampala" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="district">District/Province <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="district" name="district" placeholder="Kampala District" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="postal">Postal Code</label>
+                                        <input type="text" class="form-control" id="postal" name="postal" placeholder="Optional">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span class="required">*</span></label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+256 754 411 788" required>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="sameAsBilling" name="sameAsBilling"> 
+                                    <strong>Billing address same as shipping</strong>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Billing Address -->
+                    <div class="panel panel-default" id="billingSection">
+                        <div class="panel-heading">
+                            <h4><span class="label label-info">2</span> Billing Address</h4>
+                        </div>
+                        <div class="panel-body" id="billingFields">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="billingFirstName">First Name <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="billingFirstName" name="billingFirstName" placeholder="First name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="billingLastName">Last Name <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="billingLastName" name="billingLastName" placeholder="Last name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="billingAddress">Street Address <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="billingAddress" name="billingAddress" placeholder="Street address" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="billingCity">City <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="billingCity" name="billingCity" placeholder="City" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="billingDistrict">District <span class="required">*</span></label>
+                                        <input type="text" class="form-control" id="billingDistrict" name="billingDistrict" placeholder="District" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="billingPostal">Postal Code</label>
+                                        <input type="text" class="form-control" id="billingPostal" name="billingPostal" placeholder="Optional">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><span class="label label-warning">3</span> Payment Method</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="paymentMethod" value="creditcard" checked> 
+                                    <i class="fa fa-credit-card"></i> Credit Card
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="paymentMethod" value="paypal"> 
+                                    <i class="fa fa-paypal"></i> PayPal
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="paymentMethod" value="mobilemoney"> 
+                                    <i class="fa fa-mobile"></i> Mobile Money
+                                </label>
+                            </div>
+                            <hr>
+                            <div id="creditCardFields">
+                                <div class="form-group">
+                                    <label for="cardName">Cardholder Name <span class="required">*</span></label>
+                                    <input type="text" class="form-control" id="cardName" name="cardName" placeholder="Name on card" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number <span class="required">*</span></label>
+                                    <input type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="expiry">Expiry Date <span class="required">*</span></label>
+                                            <input type="text" class="form-control" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="cvv">CVV <span class="required">*</span></label>
+                                            <input type="text" class="form-control" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Order Review & Summary -->
+            <div class="col-md-4">
+                <div class="panel panel-default order-review">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-list"></i> Order Summary</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div style="margin-bottom: 20px;">
+                            <h5 style="margin: 0 0 15px 0; color: #53fd53; font-weight: 700;">Items in Cart</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    Rose Flower <strong class="pull-right">UGX 19.99</strong>
+                                </li>
+                                <li class="list-group-item">
+                                    Lily Flower <em>×2</em> <strong class="pull-right">UGX 59.98</strong>
+                                </li>
+                                <li class="list-group-item">
+                                    Tulip Flower <strong class="pull-right">UGX 99.99</strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="border-top: 2px solid rgba(83, 253, 83, 0.2); padding-top: 15px;">
+                            <h5 style="margin: 0 0 15px 0; color: #53fd53; font-weight: 700;">Cost Summary</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    Subtotal <strong class="pull-right">UGX 179.96</strong>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-truck"></i> Shipping <strong class="pull-right">UGX 9.99</strong>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-percent"></i> Tax (8.875%) <strong class="pull-right">UGX 15.96</strong>
+                                </li>
+                                <li class="list-group-item text-success" style="font-size: 18px;">
+                                    <strong><i class="fa fa-money"></i> Total Payable <span class="pull-right">UGX 205.91</span></strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr style="margin: 20px 0;">
+                        <button type="submit" class="btn btn-success btn-block btn-lg" form="checkoutForm"><i class="fa fa-check"></i> Place Order</button>
+                        <a href="cart.html" class="btn btn-default btn-block"><i class="fa fa-arrow-left"></i> Return to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- /.container marketing -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Contact</h3>
+              <a href="tel:+256754411788"><i class="fa fa-phone"></i> Phone: +256 754 411 788</a>
+              <a href="mailto:flowerhub@gmail.com"><i class="fa fa-envelope"></i> Email: flowerhub@gmail.com</a>
+              <a href="#"><i class="fa fa-map-marker"></i> Address: P.O.BOX 123, Acacia Avenue, Kampala(U)</a>
+          </div>
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Menu</h3>
+            <a href="estate.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallary.html">Gallery</a>
+            <a href="cart.html">Categories</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+  <!-- Newsletter Section -->
+      <div class="row newsletter-section">
+        <div class="col-md-8">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Get the latest updates on new flower arrivals, special offers, and gardening tips delivered to your inbox!</p>
+        </div>
+        <div class="col-md-4">
+          <form class="form-inline" role="form">
+            <div class="form-group" style="width: 100%;">
+              <input type="email" class="form-control" style="width: 70%; margin-right: 5px;" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-success">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+          <div class="col-sm-12 col-md-4 footer-col text-right">
+            <h3>© 2026 Flowerhub.com</h3>
+            <p>Helping nature, one tree at a time.</p>
+            <div class="social-media">
+              <a href="https://www.facebook.com/flowerhub" target="_blank" title="Follow us on Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="https://www.twitter.com/flowerhub" target="_blank" title="Follow us on Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/flowerhub" target="_blank" title="Follow us on Instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/256754411788" target="_blank" title="Chat with us on WhatsApp">
+                <i class="fa fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+     integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+      crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        // Toggle billing address section
+        var sameAsBillingCheckbox = document.getElementById('sameAsBilling');
+        var billingSection = document.getElementById('billingSection');
+        var billingFields = document.getElementById('billingFields');
+        
+        function toggleBillingFields() {
+            if (sameAsBillingCheckbox.checked) {
+                billingSection.style.display = 'none';
+                document.querySelectorAll('#billingFields input').forEach(input => {
+                    input.removeAttribute('required');
+                    input.disabled = true;
+                });
+            } else {
+                billingSection.style.display = 'block';
+                document.querySelectorAll('#billingFields input').forEach(input => {
+                    input.disabled = false;
+                    if (input.name !== 'billingPostal') {
+                        input.setAttribute('required', 'required');
+                    }
+                });
+            }
+        }
+        
+        if (sameAsBillingCheckbox) {
+            sameAsBillingCheckbox.addEventListener('change', toggleBillingFields);
+            // Initialize on page load
+            toggleBillingFields();
+        }
+
+        // Toggle payment method fields
+        var paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
+        var creditCardFields = document.getElementById('creditCardFields');
+        
+        function togglePaymentFields() {
+            var selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+            if (selectedPayment && selectedPayment.value === 'creditcard') {
+                creditCardFields.style.display = 'block';
+                document.querySelectorAll('#creditCardFields input').forEach(input => {
+                    input.setAttribute('required', 'required');
+                    input.disabled = false;
+                });
+            } else {
+                creditCardFields.style.display = 'none';
+                document.querySelectorAll('#creditCardFields input').forEach(input => {
+                    input.removeAttribute('required');
+                    input.disabled = false;
+                });
+            }
+        }
+        
+        paymentRadios.forEach(function(radio) {
+            radio.addEventListener('change', togglePaymentFields);
+        });
+        
+        // Initialize on page load
+        togglePaymentFields();
+
+        // Form submission handler
+        var checkoutForm = document.getElementById('checkoutForm');
+        if (checkoutForm) {
+            checkoutForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Validate form
+                if (this.checkValidity() === false) {
+                    e.stopPropagation();
+                    alert('Please fill in all required fields.');
+                } else {
+                    alert('Order placed successfully! Thank you for your purchase.');
+                    // Here you would normally send data to a server
+                }
+                this.classList.add('was-validated');
+            });
+        }
+    </script>
+</body>
+</html>

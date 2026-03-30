@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/tiny-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <title>Category</title>
+</head>
+<style>
+  body{
+    padding-top: 70px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/back2.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+
+  .navbar {
+    background-color: #000;
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .navbar .navbar-brand img {
+    max-height: 56px;
+    width: auto;
+  }
+
+  .navbar .navbar-nav > li > a {
+    color: #fff;
+  }
+
+  .navbar .navbar-nav > li > a:hover {
+    color: #53fd53;
+  }
+
+  /* center main nav links */
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+
+  .navbar .navbar-nav {
+    float: none;
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav > li {
+    float: none;
+    display: inline-block;
+  }
+
+  .navbar .navbar-toggle .icon-bar {
+    background-color: #fff;
+  }
+
+  .logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0px 50px rgba(0, 0, 0,0.2);
+  }
+
+  /* Breadcrumb Styling */
+  .breadcrumb {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(83, 253, 83, 0.2);
+  }
+
+  .breadcrumb > li + li:before {
+    color: #53fd53;
+  }
+
+  .breadcrumb > li > a {
+    color: #53fd53;
+    transition: all 0.3s ease;
+  }
+
+  .breadcrumb > li > a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .breadcrumb > .active {
+    color: #fff;
+  }
+
+  /* Sidebar Filters */
+  .sidebar {
+    margin-bottom: 40px;
+  }
+
+  .sidebar > h4 {
+    color: #53fd53;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #53fd53;
+  }
+
+  .panel {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(83, 253, 83, 0.2);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .panel:hover {
+    border-color: #53fd53;
+    box-shadow: 0 4px 15px rgba(83, 253, 83, 0.15);
+  }
+
+  .panel-heading {
+    background-color: rgba(83, 253, 83, 0.1);
+    border-bottom: 2px solid rgba(83, 253, 83, 0.3);
+    color: #53fd53;
+    font-weight: 600;
+    padding: 12px 15px;
+    border-radius: 7px 7px 0 0;
+  }
+
+  .panel-body {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    color: #fff;
+  }
+
+  .panel-body label {
+    color: #b3d9b3;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .panel-body label:hover,
+  .panel-body input[type="checkbox"]:checked ~ label {
+    color: #53fd53;
+  }
+
+  .panel-body input[type="range"] {
+    background-color: rgba(83, 253, 83, 0.2);
+    border-radius: 5px;
+  }
+
+  .panel-body select {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(83, 253, 83, 0.3);
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .panel-body select:focus {
+    border-color: #53fd53;
+    box-shadow: 0 0 8px rgba(83, 253, 83, 0.3);
+    outline: none;
+  }
+
+  /* Product Grid */
+  .category-filters {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .category-item {
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+  }
+
+  .category-item:hover {
+    transform: translateY(-8px);
+  }
+
+  .thumbnail {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(83, 253, 83, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+  }
+
+  .thumbnail:hover {
+    border-color: #53fd53;
+    box-shadow: 0 12px 35px rgba(83, 253, 83, 0.25);
+  }
+
+  .category-item .thumbnail img {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .thumbnail:hover img {
+    transform: scale(1.08);
+  }
+
+  .thumbnail .caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 18px;
+    border-top: 2px solid rgba(83, 253, 83, 0.2);
+  }
+
+  .thumbnail h5 {
+    color: #53fd53;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    letter-spacing: 0.5px;
+  }
+
+  .thumbnail .price {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 8px 0;
+  }
+
+  .thumbnail .rating {
+    color: #ffc107;
+    font-size: 14px;
+    margin: 8px 0 12px 0;
+    letter-spacing: 2px;
+  }
+
+  /* Product Buttons */
+  .thumbnail .btn {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    border: none;
+    color: #000;
+    font-weight: 700;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+  }
+
+  .thumbnail .btn:hover {
+    background: linear-gradient(135deg, #63ff63 0%, #35d835 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(83, 253, 83, 0.4);
+    color: #000;
+  }
+
+  .thumbnail .btn:active {
+    transform: translateY(-1px);
+  }
+
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    gap: 8px;
+  }
+
+  .pagination > li > a,
+  .pagination > li > span {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(83, 253, 83, 0.2);
+    color: #53fd53;
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+  }
+
+  .pagination > li > a:hover {
+    background-color: #53fd53;
+    color: #000;
+    border-color: #53fd53;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(83, 253, 83, 0.3);
+  }
+
+  .pagination > li.active > a,
+  .pagination > li.active > span {
+    background-color: #53fd53;
+    border-color: #53fd53;
+    color: #000;
+    box-shadow: 0 4px 12px rgba(83, 253, 83, 0.3);
+  }
+
+  .pagination > li.disabled > a,
+  .pagination > li.disabled > span {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .footer {
+    margin-top: 80px;
+    width: 100%;
+    padding: 60px 1.6% 40px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
+    color: #fff;
+    border-top: 3px solid rgba(83, 253, 83, 0.4);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(83, 253, 83, 0.2);
+    display: flex;
+    text-align: left;
+    gap: 40px;
+    overflow: hidden;
+  }
+
+  .footer .footer-col {
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+
+  .footer .footer-col.text-right {
+    text-align: right;
+  }
+
+  .footer h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #53fd53;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .footer h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #53fd53 0%, transparent 100%);
+    border-radius: 2px;
+  }
+
+  .footer a {
+    display: block;
+    color: #a8d5a8;
+    margin-bottom: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .footer a:hover {
+    color: #53fd53;
+    padding-left: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Social Media Icons */
+  .social-media {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .social-media a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(83, 253, 83, 0.15) 0%, rgba(83, 253, 83, 0.08) 100%);
+    border: 2px solid rgba(83, 253, 83, 0.4);
+    color: #53fd53;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(83, 253, 83, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .social-media a:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(83, 253, 83, 0.2), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .social-media a:hover:before {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-media a i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+  }
+
+  .social-media a:hover {
+    border-color: #53fd53;
+    color: #000;
+    transform: translateY(-6px) rotate(5deg) scale(1.12);
+    box-shadow: 0 12px 30px rgba(83, 253, 83, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .social-media a:hover i {
+    transform: scale(1.2);
+  }
+
+  .social-media a:active {
+    transform: translateY(-2px) rotate(5deg) scale(1.06);
+    box-shadow: 0 6px 15px rgba(83, 253, 83, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .social-media a[href*="facebook"]:hover {
+    background: linear-gradient(135deg, #1877F2 0%, #0A66C2 100%);
+    border-color: #1877F2;
+  }
+
+  .social-media a[href*="twitter"]:hover {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1a8917 100%);
+    border-color: #1DA1F2;
+  }
+
+  .social-media a[href*="instagram"]:hover {
+    background: linear-gradient(135deg, #E1306C 0%, #405DE6 100%);
+    border-color: #E1306C;
+  }
+
+  .social-media a[href*="whatsapp"]:hover {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-color: #25D366;
+  }
+
+  @keyframes iconGlow {
+    0% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(83, 253, 83, 0.4), 0 4px 15px rgba(83, 253, 83, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+  }
+
+  .social-media a {
+    animation: iconGlow 3s ease-in-out infinite;
+  }
+
+  .social-media a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .social-media a:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .social-media a:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  .footer .social {
+    margin-top: 12px;
+  }
+
+  .footer .social a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 20px;
+    color: #16b33d;
+  }
+
+  .footer .social a:hover {
+    color: #53fd53;
+  }
+  .footer .social-icons a{
+    display: inline-block;
+    margin-left: 12px;
+    margin-right: 0;
+    font-size: 20px;
+    color: #16b33d;
+    transition: all 0.3s ease;
+  }
+  .footer .social-icons a:first-child{
+    margin-left: 0;
+  }
+  .footer .social-icons a:hover{
+    color: #53fd53;
+  }
+</style>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img class="logo" src="images/logo1.jpeg">
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="estate.html">Home</a></li>
+            <li><a href="cartegory.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="potfolio.html">Potfolio</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="cart.html">Cartegories</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Others</li>
+                <li><a href="login.html">Login</a></li>
+                  <li><a href="signup.html">Signup</a></li>
+                <li><a href="gallary.html">Gallary</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+              </ul>
+            </li>
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="glyphicon glyphicon-shopping-cart " href="cart.html">Cart</a>
+            </li>
+            <li><a class="glyphicon glyphicon-user" href="login.html"></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="estate.html">Home</a></li>
+            <li><a href="cart.html">Categories</a></li>
+            <li class="active">Flowerhub</li>
+        </ol>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar Filters -->
+            <div class="col-lg-3 col-md-4 col-sm-12 sidebar">
+                <h4>Filters</h4>
+                
+                <!-- Brands -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Brands</div>
+                    <div class="panel-body">
+                        <label class="checkbox-inline">
+                            <input type="checkbox"> rose flower
+                        </label><br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox"> sun flower
+                        </label><br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox"> lily flower
+                        </label><br>
+                        <label class="checkbox-inline">
+                            <input type="checkbox"> daisyflower
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Price Range -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Price</div>
+                    <div class="panel-body">
+                        <input type="range" class="form-control" min="0" max="1000" value="500">
+                        <p>UGX0 - UGX1,000</p>
+                    </div>
+                </div>
+
+                <!-- Sort By -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Sort By</div>
+                    <div class="panel-body">
+                        <select class="form-control">
+                            <option>Popularity</option>
+                            <option>Price - Low to High</option>
+                            <option>Price - High to Low</option>
+                            <option>Alphabetical</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="col-lg-9 col-md-8 col-sm-12">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image1.jpeg" alt="Product 1">
+                            <div class="caption">
+                                <h5>Rose Flower</h5>
+                                <p class="price">UGX19,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image2.jpeg" alt="Product 2">
+                            <div class="caption">
+                                <h5>Sun Flower</h5>
+                                <p class="price">UGX29,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image3.jpeg" alt="Product 3">
+                            <div class="caption">
+                                <h5>Lily Flower</h5>
+                                <p class="price">UGX99,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image4.jpeg" alt="Product 4">
+                            <div class="caption">
+                                <h5>Daisy Flower</h5>
+                                <p class="price">UGX24,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image5.jpeg" alt="Product 5">
+                            <div class="caption">
+                                <h5>Tulip Flower</h5>
+                                <p class="price">UGX34,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image6.jpeg" alt="Product 6">
+                            <div class="caption">
+                                <h5>Orchid Flower</h5>
+                                <p class="price">UGX15,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image7.jpeg" alt="Product 7">
+                            <div class="caption">
+                                <h5>Jasmine Flower</h5>
+                                <p class="price">UGX22,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image8.jpeg" alt="Product 8">
+                            <div class="caption">
+                                <h5>Lavender Flower</h5>
+                                <p class="price">UGX12,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image9.jpeg" alt="Product 9">
+                            <div class="caption">
+                                <h5>Hibiscus Flower</h5>
+                                <p class="price">UGX28,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="thumbnail product-item">
+                            <img src="images/image10.jpeg" alt="Product 10">
+                            <div class="caption">
+                                <h5>Peony Flower</h5>
+                                <p class="price">UGX149,990</p>
+                                <p class="rating">
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                                <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+ <!-- Pagination -->
+      <nav>
+       <ul class="pagination">
+        <li class="disabled"><a href="#"><span aria-hidden="true">&laquo;</span></a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                  
+                        <li><a href="#"><span aria-hidden="true">&raquo;</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+<footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Contact</h3>
+              <a href="tel:+256754411788"><i class="fa fa-phone"></i> Phone: +256 754 411 788</a>
+              <a href="mailto:flowerhub@gmail.com"><i class="fa fa-envelope"></i> Email: flowerhub@gmail.com</a>
+              <a href="#"><i class="fa fa-map-marker"></i> Address: P.O.BOX 123, Acacia Avenue, Kampala(U)</a>
+          </div>
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Menu</h3>
+            <a href="estate.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallary.html">Gallery</a>
+            <a href="cart.html">Categories</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+  <!-- Newsletter Section -->
+      <div class="row newsletter-section">
+        <div class="col-md-8">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Get the latest updates on new flower arrivals, special offers, and gardening tips delivered to your inbox!</p>
+        </div>
+        <div class="col-md-4">
+          <form class="form-inline" role="form">
+            <div class="form-group" style="width: 100%;">
+              <input type="email" class="form-control" style="width: 70%; margin-right: 5px;" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-success">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+          <div class="col-sm-12 col-md-4 footer-col text-right">
+            <h3>© 2026 Flowerhub.com</h3>
+            <p>Helping nature, one tree at a time.</p>
+            <div class="social-media">
+              <a href="https://www.facebook.com/flowerhub" target="_blank" title="Follow us on Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="https://www.twitter.com/flowerhub" target="_blank" title="Follow us on Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/flowerhub" target="_blank" title="Follow us on Instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/256754411788" target="_blank" title="Chat with us on WhatsApp">
+                <i class="fa fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+     integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+      crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="categories.js"></script>
+    <script>
+      // Render category UI based on the standard categories.js data.
+      (function() {
+        var $filters = $('#categoryFilters');
+        var $grid = $('#categoryGrid');
+
+        function renderFilters(categories) {
+          var buttons = ['<button type="button" class="btn btn-default category-filter active" data-category="all">All</button>'];
+          categories.forEach(function(category) {
+            buttons.push(
+              '<button type="button" class="btn btn-default category-filter" data-category="' + category.id + '">' +
+                category.name +
+              '</button>'
+            );
+          });
+          $filters.html(buttons.join(''));
+        }
+
+        function renderItems(categories) {
+          var cards = [];
+          categories.forEach(function(category) {
+            category.items.forEach(function(item) {
+              cards.push(
+                '<div class="col-sm-6 col-md-3 category-item" data-category="' + category.id + '">' +
+                  '<div class="thumbnail">' +
+                    '<img src="' + item.image + '" alt="' + item.title + '">' +
+                    '<div class="caption">' +
+                      '<h3>' + item.title + '</h3>' +
+                      '<p>' + item.description + '</p>' +
+                      '<p><a href="' + item.link + '" class="btn btn-primary" role="button">View</a></p>' +
+                    '</div>' +
+                  '</div>' +
+                '</div>'
+              );
+            });
+          });
+          $grid.html(cards.join(''));
+        }
+
+        function bindFilterEvents() {
+          $filters.on('click', '.category-filter', function() {
+            var category = $(this).data('category');
+            $('.category-filter').removeClass('active');
+            $(this).addClass('active');
+
+            if (category === 'all') {
+              $('.category-item').show();
+            } else {
+              $('.category-item').hide().filter(function() {
+                return $(this).data('category') === category;
+              }).show();
+            }
+          });
+        }
+
+        // Initialize
+        if (window.categories && Array.isArray(window.categories)) {
+          renderFilters(window.categories);
+          renderItems(window.categories);
+          bindFilterEvents();
+        }
+      })();
+
+      // Add to Cart functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        var buttons = document.querySelectorAll('.btn-primary.btn-block');
+        
+        buttons.forEach(function(button) {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get product information from the parent thumbnail
+            var thumbnail = button.closest('.thumbnail');
+            var img = thumbnail.querySelector('img');
+            var h5 = thumbnail.querySelector('h5');
+            var price = thumbnail.querySelector('.price');
+            
+            var product = {
+              id: Date.now(), // Simple unique ID
+              title: h5 ? h5.textContent : 'Product',
+              price: price ? price.textContent : 'N/A',
+              image: img ? img.src : ''
+            };
+            
+            // Get existing cart from localStorage
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Add product to cart
+            cart.push(product);
+            
+            // Save back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Redirect to cart page
+            window.location.href = 'cart.html';
+          });
+        });
+      });
+    </script>
+</body>
+</html>

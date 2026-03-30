@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <title>Home</title>
+<style>
+  body {
+    padding-top: 70px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.3px; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/back2.jpeg);    
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+
+  .navbar {
+      background-color: black;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+             
+    .navbar .navbar-brand img {
+      max-height: 56px;
+      width: auto;
+    }
+
+    .navbar .navbar-nav > li > a {
+      color: white;
+    }
+
+    .navbar .navbar-nav > li > a:hover {
+      color: #53fd53;
+    }
+
+    /* center main nav links */
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
+
+    .navbar .navbar-nav {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-nav > li {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-toggle .icon-bar {
+      background-color: #fff;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 20px rgba(83, 253, 83, 0.4);
+    }
+
+  /* Medium-size carousel styling */
+  .carousel {
+    max-height: 520px;
+    overflow: hidden;
+
+  }
+
+  .carousel .item img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .carousel .item img {
+      height: 320px;
+    }
+  }
+
+  .container {
+    font-family: 'arial';
+  }
+
+  .panel-heading img {
+    border-radius: 20px;
+    width: 30%;
+  }
+
+  .footer {
+    margin-top: 80px;
+    width: 100%;
+    padding: 60px 1.6% 40px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
+    color: #fff;
+    border-top: 3px solid rgba(83, 253, 83, 0.4);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(83, 253, 83, 0.2);
+    display: flex;
+    text-align: left;
+    gap: 40px;
+    overflow: hidden;
+  }
+
+  .footer .footer-col {
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+
+  .footer h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #53fd53;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .footer h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #53fd53 0%, transparent 100%);
+    border-radius: 2px;
+  }
+
+  .footer a {
+    display: block;
+    color: #a8d5a8;
+    margin-bottom: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .footer a:hover {
+    color: #53fd53;
+    padding-left: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .footer .social {
+    margin-top: 12px;
+  }
+
+  .footer .social a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 20px;
+    color: #16b33d;
+  }
+
+  .footer .social a:hover {
+    color: #53fd53;
+  }
+  .footer .social-icons a{
+    font-size: 30px;
+    float: left;
+
+  }
+  .footer .social-icons a:hover{
+    color: white;
+  }
+  .row{
+    margin-top: 20px;
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+  }
+
+  .video-section {
+    background: #f9f9f9;
+    padding: 40px 0;
+    margin: 30px 0;
+  }
+
+  .video-section h2 {
+    color: #16b33d;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  .video-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  /* Marketing Section Styles */
+  .container.marketing {
+    padding: 40px 20px;
+  }
+
+  /* Carousel Caption Styling */
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    animation: slideUp 0.8s ease-out;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .carousel-caption h1 {
+    color: #53fd53;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+  }
+
+  .carousel-caption p {
+    font-size: 18px;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  /* Three Column Section */
+  .marketing .col-lg-4 {
+    margin-bottom: 40px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .marketing .col-lg-4:hover {
+    transform: translateY(-12px);
+  }
+
+  .marketing .col-lg-4 .img-circle {
+    border: 4px solid #53fd53;
+    box-shadow: 0 8px 25px rgba(83, 253, 83, 0.2);
+    transition: all 0.3s ease;
+    width: 300px !important;
+    height: 300px !important;
+    object-fit: cover;
+  }
+
+  .marketing .col-lg-4:hover .img-circle {
+    box-shadow: 0 12px 35px rgba(83, 253, 83, 0.35);
+    transform: scale(1.05);
+  }
+
+  .marketing .col-lg-4 h2 {
+    color: #53fd53;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 30px 0 20px 0;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .marketing .col-lg-4 p {
+    color: #ddd;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .marketing .col-lg-4 .btn-default {
+    background: transparent;
+    border: 2px solid #53fd53;
+    color: #53fd53;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-size: 13px;
+  }
+
+  .marketing .col-lg-4 .btn-default:hover {
+    background: #53fd53;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(83, 253, 83, 0.3);
+  }
+
+  /* Featurette Divider */
+  .featurette-divider {
+    margin: 60px 0;
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #53fd53, transparent);
+  }
+
+  /* Featurette Section */
+  .row.featurette {
+    align-items: center;
+    margin-bottom: 60px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border-left: 5px solid #53fd53;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .featurette-heading {
+    color: #53fd53;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+  }
+
+  .featurette-heading .text-muted {
+    color: #b3d9b3 !important;
+    font-size: 0.6em;
+  }
+
+  .lead {
+    color: #ddd !important;
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+    font-weight: 500 !important;
+  }
+
+  .featurette-image {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(83, 253, 83, 0.3);
+  }
+
+  /* Why Choose Us Section */
+  .col-md-3.text-center {
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .col-md-3.text-center:hover {
+    transform: translateY(-15px);
+  }
+
+  .col-md-3.text-center .fa {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    background: rgba(83, 253, 83, 0.15);
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(83, 253, 83, 0.1);
+  }
+
+  .col-md-3.text-center:hover .fa {
+    background: rgba(83, 253, 83, 0.25);
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(83, 253, 83, 0.2);
+  }
+
+  .col-md-3.text-center h3 {
+    color: #53fd53;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 20px 0 15px 0;
+    letter-spacing: 0.8px;
+  }
+
+  .col-md-3.text-center p {
+    color: #ddd;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Video Section */
+  .video-section {
+    padding: 50px 0;
+    margin: 40px 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 2px solid rgba(83, 253, 83, 0.2);
+  }
+
+  .video-section h2 {
+    color: #53fd53;
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(83, 253, 83, 0.2);
+    margin-bottom: 20px;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .video-description {
+    color: #ddd !important;
+    font-size: 16px !important;
+    line-height: 1.8 !important;
+    margin-top: 20px;
+  }
+
+  /* Special Offers Section */
+  .row > h2 {
+    color: #53fd53;
+    font-size: 36px;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+  }
+
+  .panel-success,
+  .panel-info {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 100%);
+    border: 2px solid rgba(83, 253, 83, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .panel-success:hover,
+  .panel-info:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(83, 253, 83, 0.15);
+    border-color: rgba(83, 253, 83, 0.35);
+  }
+
+  .panel-success > .panel-heading,
+  .panel-info > .panel-heading {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    color: #000;
+    border: none;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .panel-heading .panel-title {
+    color: #000;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+  }
+
+  .panel-body {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 25px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .panel-body p {
+    color: #333;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .panel-body strong {
+    color: #53fd53;
+    font-weight: 700;
+  }
+
+  .panel-success .btn-success,
+  .panel-info .btn-info {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    border: none;
+    color: #000;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 12px;
+  }
+
+  .panel-success .btn-success:hover,
+  .panel-info .btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(83, 253, 83, 0.3);
+  }
+
+  /* Call to Action Section */
+  .row.cta-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%) !important;
+    border: 2px solid rgba(83, 253, 83, 0.3) !important;
+    padding: 50px !important;
+    border-radius: 15px !important;
+    text-align: center !important;
+    margin: 60px 0 !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  }
+
+  .row.cta-section h2 {
+    color: #53fd53;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+  }
+
+  .row.cta-section p {
+    color: #ddd;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .row.cta-section .btn-light {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%) !important;
+    color: #000 !important;
+    border: none;
+    font-weight: 700;
+    padding: 15px 35px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .row.cta-section .btn-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(83, 253, 83, 0.3);
+  }
+
+  /* Newsletter Section */
+  .newsletter-section {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(83, 253, 83, 0.2);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+
+  .newsletter-section h3 {
+    color: #53fd53;
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 15px;
+    letter-spacing: 0.8px;
+  }
+
+  .newsletter-section p {
+    color: #ddd;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .newsletter-section .form-control {
+    border-radius: 8px;
+    border: 2px solid #53fd53;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-section .form-control:focus {
+    border-color: #2cbb2c;
+    box-shadow: 0 0 0 3px rgba(83, 253, 83, 0.15);
+    outline: none;
+  }
+
+  .newsletter-section .btn-success {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    border: none;
+    color: #000;
+    font-weight: 700;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-size: 13px;
+  }
+
+  .newsletter-section .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(83, 253, 83, 0.3);
+  }
+
+  /* General Button Styles */
+  .btn-lg {
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-success {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%) !important;
+    border: none !important;
+    color: #000 !important;
+  }
+
+  .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(83, 253, 83, 0.3);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%) !important;
+    border: none !important;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #63ff63 0%, #35d835 100%) !important;
+  }
+
+  /* Social Media Icons */
+  .social-media {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .social-media a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(83, 253, 83, 0.15) 0%, rgba(83, 253, 83, 0.08) 100%);
+    border: 2px solid rgba(83, 253, 83, 0.4);
+    color: #53fd53;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(83, 253, 83, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .social-media a:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(83, 253, 83, 0.2), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .social-media a:hover:before {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-media a i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+  }
+
+  .social-media a:hover {
+    border-color: #53fd53;
+    color: #000;
+    transform: translateY(-6px) rotate(5deg) scale(1.12);
+    box-shadow: 0 12px 30px rgba(83, 253, 83, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .social-media a:hover i {
+    transform: scale(1.2);
+  }
+
+  .social-media a:active {
+    transform: translateY(-2px) rotate(5deg) scale(1.06);
+    box-shadow: 0 6px 15px rgba(83, 253, 83, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .social-media a[href*="facebook"]:hover {
+    background: linear-gradient(135deg, #1877F2 0%, #0A66C2 100%);
+    border-color: #1877F2;
+  }
+
+  .social-media a[href*="twitter"]:hover {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1a8917 100%);
+    border-color: #1DA1F2;
+  }
+
+  .social-media a[href*="instagram"]:hover {
+    background: linear-gradient(135deg, #E1306C 0%, #405DE6 100%);
+    border-color: #E1306C;
+  }
+
+  .social-media a[href*="whatsapp"]:hover {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-color: #25D366;
+  }
+
+  @keyframes iconGlow {
+    0% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(83, 253, 83, 0.4), 0 4px 15px rgba(83, 253, 83, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+  }
+
+  .social-media a {
+    animation: iconGlow 3s ease-in-out infinite;
+  }
+
+  .social-media a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .social-media a:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .social-media a:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img class="logo" src="images/logo.jpg">
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="estate.html">Home</a></li>
+            <li><a href="cartegory.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="potfolio.html">Potfolio</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="cart.html">Cartegories</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Others</li>
+                <li><a href="login.html">Login</a></li>
+                  <li><a href="signup.html">Signup</a></li>
+                <li><a href="gallary.html">Gallary</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+              </ul>
+            </li>
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="glyphicon glyphicon-shopping-cart " href="cart.html">Cart</a>
+            </li>
+            <li><a class="glyphicon glyphicon-user" href="login.html"></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="hover">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide img-responsive" src="images/image1.jpeg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>WELCOME TO FLOWERHUB..</h1>
+              <p>Were are the flower hub, 
+                purchase flowers of your choice to beautify your mood.
+                 We bring the best flower solutions to your convenient location</p>
+              <p><a class="btn btn-lg btn-primary" href="signup.html" role="button">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide img-responsive" src="images/image2.jpeg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>QUALITY ASSURED</h1>
+              <p>We guarantee the highest quality flowers with our premium 
+                selection process and expert handling to maintain freshness.</p>
+              <p><a class="btn btn-lg btn-primary" href="learnmore.html" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide img-responsive" src="images/image3.jpeg" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>EXPERT FLORISTS</h1>
+              <p>Our team of experienced florists creates stunning arrangements for any occasion 
+                - weddings, birthdays, and more.
+              </p>
+              <p><a class="btn btn-lg btn-primary" href="gallary.html" role="button">Browse Gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+  
+  <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="images/back2.jpeg" alt="Generic placeholder image" width="300" height="300">
+          <h2>Rose Flower</h2>
+          <p>A rose flower is a classic symbol of love and beauty. Here's a quick description:
+              Color: Typically red, but also comes in pink, yellow, white, and more
+              Petals: Soft, velvet-like, and layered in a spiral pattern
+              Center: Yellow stamens surrounded by delicate petals
+              Stem: Thorny and slender, with green leaves
+              Scent: Sweet and romantic, varying by variety
+           </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="images/daisy.jpeg" alt="Generic placeholder image" width="300" height="300">
+          <h2>Daisy Flower</h2>
+          <p>The daisy flower is a simple yet beautiful plant known for its white petals and bright yellow center. 
+            It symbolizes purity, innocence, and new beginnings, and is commonly found in gardens and wild fields.
+             Daisies are hardy flowers that can grow in many environments and are often associated with happiness and freshness.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        
+        <!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="images/hibiscus.jpeg" alt="Generic placeholder image" width="300" height="300">
+          <h2>Hibiscus Flower</h2>
+          <p>The hibiscus, from the genus Hibiscus, 
+            is a colorful tropical flower valued for its beauty and uses. 
+            Species like Hibiscus rosa-sinensis are grown for decoration,
+             while Hibiscus sabdariffa is used to make healthy herbal tea with medicinal benefits.
+</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        
+        <!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+      <!-- Featured Products Section -->
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Fresh Flowers <span class="text-muted">Direct from Garden</span></h2>
+          <p class="lead">We provide the freshest flowers sourced directly from our premium flower gardens. Each arrangement is carefully selected and hand-prepared by our expert florists to ensure maximum freshness and beauty. Our flowers are delivered within 24 hours of plucking.</p>
+          <a href="cartegory.html" class="btn btn-lg btn-success"><i class="fa fa-shopping-bag"></i> Shop Fresh Flowers</a>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="images/image2.jpeg" alt="Fresh Flowers">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- Why Choose Us Section -->
+      <div class="row">
+        <h2 class="text-center" style="margin-bottom: 30px;">Why Choose FlowerHub?</h2>
+        <div class="col-md-3 text-center">
+          <i class="fa fa-heart-o" style="font-size: 48px; color: #53fd53;"></i>
+          <h3>Quality Assured</h3>
+          <p>We guarantee the highest quality flowers with our premium selection process and expert handling to maintain freshness.</p>
+        </div>
+        <div class="col-md-3 text-center">
+          <i class="fa fa-truck" style="font-size: 48px; color: #53fd53;"></i>
+          <h3>Fast Delivery</h3>
+          <p>Same-day delivery available for orders placed before 2 PM. We ensure your flowers arrive fresh and on time.</p>
+        </div>
+        <div class="col-md-3 text-center">
+          <i class="fa fa-money" style="font-size: 48px; color: #53fd53;"></i>
+          <h3>Affordable Prices</h3>
+          <p>Competitive pricing without compromising on quality. Bulk discounts available for corporate and large orders.</p>
+        </div>
+        <div class="col-md-3 text-center">
+          <i class="fa fa-users" style="font-size: 48px; color: #53fd53;"></i>
+          <h3>Expert Florists</h3>
+          <p>Our team of experienced florists creates stunning arrangements for any occasion - weddings, birthdays, and more.</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- Video Section -->
+      <div class="video-section">
+        <h2 class="text-center">See FlowerHub in Action</h2>
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="video-container">
+              <iframe src="https://www.bing.com/videos/riverview/relatedvideo?q=Different+Flowers+Names&&mid=FC6A208769AA8EAF6AB5FC6A208769AA8EAF6AB5&FORM=VRDGAR" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <p class="video-description text-center">
+              Watch our team in action as we prepare beautiful floral arrangements and deliver them fresh to your doorstep. 
+              Discover the care and attention to detail that goes into every bouquet at FlowerHub.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Special Offers Section -->
+      <div class="row" >
+        <h2 class="text-center" style="margin-bottom: 30px;">Special Offers</h2>
+        <div class="col-md-6">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-gift"></i> Birthday Specials</h3>
+            </div>
+            <div class="panel-body">
+              <p><strong>Get 20% OFF</strong> on all flower arrangements for birthday celebrations</p>
+              <p>Minimum order: 2 bouquets | Valid for this month only</p>
+              <a href="cartegory.html" class="btn btn-sm btn-success"><i class="fa fa-shopping-bag"></i> Shop Birthday Flowers</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-heart"></i> Wedding Packages</h3>
+            </div>
+            <div class="panel-body">
+              <p><strong>Save up to 30%</strong> with our exclusive wedding flower packages</p>
+              <p>Includes bridal bouquet, centerpieces, and decoration | Custom designs available</p>
+              <a href="contact.html" class="btn btn-sm btn-info"><i class="fa fa-comments"></i> Get Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="row cta-section">
+        <h2><i class="fa fa-heart"></i> Ready to Brighten Someone's Day?</h2>
+        <p>Browse our complete collection of fresh flowers and make every moment special.</p>
+        <a href="cartegory.html" class="btn btn-lg btn-light" style="margin-top: 15px;"><i class="fa fa-shopping-cart"></i> Browse All Flowers</a>
+      </div>
+    </div>
+    
+    <!-- /.container marketing -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Contact</h3>
+              <a href="tel:+256754411788"><i class="fa fa-phone"></i> Phone: +256 754 411 788</a>
+              <a href="mailto:flowerhub@gmail.com"><i class="fa fa-envelope"></i> Email: flowerhub@gmail.com</a>
+              <a href="#"><i class="fa fa-map-marker"></i> Address: P.O.BOX 123, Acacia Avenue, Kampala(U)</a>
+          </div>
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Menu</h3>
+            <a href="estate.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallary.html">Gallery</a>
+            <a href="cart.html">Categories</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+  <!-- Newsletter Section -->
+      <div class="row newsletter-section">
+        <div class="col-md-8">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Get the latest updates on new flower arrivals, special offers, and gardening tips delivered to your inbox!</p>
+        </div>
+        <div class="col-md-4">
+          <form class="form-inline" role="form">
+            <div class="form-group" style="width: 100%;">
+              <input type="email" class="form-control" style="width: 70%; margin-right: 5px;" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-success">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+          <div class="col-sm-12 col-md-4 footer-col text-right">
+            <h3>© 2026 Flowerhub.com</h3>
+            <p>Helping nature, one tree at a time.</p>
+            <div class="social-media">
+              <a href="https://www.facebook.com/flowerhub" target="_blank" title="Follow us on Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="https://www.twitter.com/flowerhub" target="_blank" title="Follow us on Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/flowerhub" target="_blank" title="Follow us on Instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/256754411788" target="_blank" title="Chat with us on WhatsApp">
+                <i class="fa fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+     integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+      crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

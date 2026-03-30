@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Home</title>
+<style>
+  body {
+    padding-top: 70px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/back2.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    line-height: 1.6;
+  }
+
+  .navbar {
+      background-color: black;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+             
+    .navbar .navbar-brand img {
+      max-height: 56px;
+      width: auto;
+    }
+
+    .navbar .navbar-nav > li > a {
+      color: white;
+    }
+
+    .navbar .navbar-nav > li > a:hover {
+      color: #53fd53;
+    }
+
+    /* center main nav links */
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
+
+    .navbar .navbar-nav {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-nav > li {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-toggle .icon-bar {
+      background-color: #fff;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 20px rgba(83, 253, 83, 0.4);
+    }
+
+  /* Medium-size carousel styling */
+  .carousel {
+    max-height: 520px;
+    overflow: hidden;
+
+  }
+
+  .carousel .item img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .carousel .item img {
+      height: 320px;
+    }
+  }
+
+  .container {
+    font-family: 'arial';
+  }
+
+  .panel-heading img {
+    border-radius: 20px;
+    width: 30%;
+  }
+
+  .panel-body {
+    width: 30%;
+    height: 100%;
+        padding: 0;
+    height: 10px;
+    width: 100%;
+  }
+
+  .footer {
+    margin-top: 80px;
+    width: 100%;
+    padding: 60px 1.6% 40px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
+    color: #fff;
+    border-top: 3px solid rgba(83, 253, 83, 0.4);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(83, 253, 83, 0.2);
+    display: flex;
+    text-align: left;
+    gap: 40px;
+    overflow: hidden;
+  }
+
+  .footer .footer-col {
+    margin-bottom: 40px;
+    padding: 0 15px;
+  }
+
+  .footer h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #53fd53;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .footer h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #53fd53 0%, transparent 100%);
+    border-radius: 2px;
+  }
+
+  .footer a {
+    display: block;
+    color: #a8d5a8;
+    margin-bottom: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .footer a:hover {
+    color: #53fd53;
+    padding-left: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Social Media Icons */
+  .social-media {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .social-media a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(83, 253, 83, 0.15) 0%, rgba(83, 253, 83, 0.08) 100%);
+    border: 2px solid rgba(83, 253, 83, 0.4);
+    color: #53fd53;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(83, 253, 83, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .social-media a:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(83, 253, 83, 0.2), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .social-media a:hover:before {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-media a i {
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+  }
+
+  .social-media a:hover {
+    border-color: #53fd53;
+    color: #000;
+    transform: translateY(-6px) rotate(5deg) scale(1.12);
+    box-shadow: 0 12px 30px rgba(83, 253, 83, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .social-media a:hover i {
+    transform: scale(1.2);
+  }
+
+  .social-media a:active {
+    transform: translateY(-2px) rotate(5deg) scale(1.06);
+    box-shadow: 0 6px 15px rgba(83, 253, 83, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .social-media a[href*="facebook"]:hover {
+    background: linear-gradient(135deg, #1877F2 0%, #0A66C2 100%);
+    border-color: #1877F2;
+  }
+
+  .social-media a[href*="twitter"]:hover {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1a8917 100%);
+    border-color: #1DA1F2;
+  }
+
+  .social-media a[href*="instagram"]:hover {
+    background: linear-gradient(135deg, #E1306C 0%, #405DE6 100%);
+    border-color: #E1306C;
+  }
+
+  .social-media a[href*="whatsapp"]:hover {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-color: #25D366;
+  }
+
+  @keyframes iconGlow {
+    0% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(83, 253, 83, 0.4), 0 4px 15px rgba(83, 253, 83, 0.2);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+    }
+  }
+
+  .social-media a {
+    animation: iconGlow 3s ease-in-out infinite;
+  }
+
+  .social-media a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .social-media a:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .social-media a:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  .footer .social {
+    margin-top: 12px;
+  }
+
+  .footer .social a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 20px;
+    color: #16b33d;
+  }
+
+  .footer .social a:hover {
+    color: #53fd53;
+  }
+  .footer .social-icons a{
+    font-size: 30px;
+    float: left;
+
+  }
+  .footer .social-icons a:hover{
+    color: white;
+  }
+  .row{
+    margin-top: 20px;
+  }
+
+  /* Shopping Cart Section Styles */
+  .container h2 {
+    color: #53fd53;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+  }
+
+  .container .lead {
+    color: #b3d9b3;
+    font-size: 16px;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  /* Cart-specific styles */
+  .cart-table {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .cart-table img.img-cart {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #53fd53;
+    box-shadow: 0 4px 10px rgba(83, 253, 83, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .cart-table img.img-cart:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(83, 253, 83, 0.4);
+  }
+
+  .cart-table thead {
+    background: rgba(83, 253, 83, 0.15);
+    border-bottom: 3px solid #53fd53;
+  }
+
+  .cart-table th {
+    color: #53fd53;
+    font-weight: 700;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    vertical-align: middle;
+    border-color: rgba(83, 253, 83, 0.2);
+  }
+
+  .cart-table td {
+    vertical-align: middle;
+    color: #fff;
+    border-color: rgba(255,255,255,0.1);
+    padding: 15px;
+  }
+
+  .cart-table h5 {
+    color: #53fd53;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .cart-table .cart-total {
+    color: #53fd53;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .cart-table .btn-danger {
+    background: #dc3545;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .cart-table .btn-danger:hover {
+    background: #ff4757;
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+  }
+
+  .cart-summary {
+    position: sticky;
+    top: 90px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .cart-summary .panel-heading {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    color: #000;
+    border-color: #53fd53;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .cart-summary .panel-heading h4 {
+    color: #000;
+    font-weight: 700;
+    margin: 0;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .cart-summary .panel-body {
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    border-radius: 0 0 10px 10px;
+    border: 2px solid rgba(83,253,83,0.3);
+    border-top: none;
+    padding: 25px;
+  }
+
+  .cart-summary p {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+
+  .cart-summary p strong {
+    color: #53fd53;
+    font-weight: 700;
+  }
+
+  .cart-summary hr {
+    border-color: rgba(83, 253, 83, 0.2);
+    margin: 15px 0;
+  }
+
+  .cart-summary .btn {
+    border-radius: 8px;
+    font-weight: 700;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+  }
+
+  .cart-summary .btn-success {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    color: #000;
+    border: none;
+  }
+
+  .cart-summary .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(83, 253, 83, 0.4);
+  }
+
+  .cart-summary .btn-primary {
+    background: transparent;
+    color: #53fd53;
+    border: 2px solid #53fd53;
+  }
+
+  .cart-summary .btn-primary:hover {
+    background: #53fd53;
+    color: #000;
+    transform: translateY(-2px);
+  }
+
+  .panel-default>.panel-heading {
+    background: linear-gradient(135deg, rgba(83, 253, 83, 0.2) 0%, rgba(83, 253, 83, 0.1) 100%);
+    color: #53fd53;
+    border-color: rgba(83,253,83,0.3);
+    font-weight: 700;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .panel-default{
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(255,255,255,0.05);
+  }
+
+  .table-hover>tbody>tr:hover {
+    background-color: rgba(83,253,83,0.12);
+  }
+
+  .breadcrumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(83, 253, 83, 0.2);
+  }
+
+  .breadcrumb > li + li:before {
+    color: #53fd53;
+  }
+
+  .breadcrumb > li > a {
+    color: #53fd53;
+    transition: all 0.3s ease;
+  }
+
+  .breadcrumb > li > a:hover {
+    color: #fff;
+  }
+
+  .breadcrumb > li.active {
+    color: #b3d9b3;
+  }
+
+  /* Recommended Products Section */
+  .container h3 {
+    color: #53fd53;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+  }
+
+  .col-sm-4 .panel {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(83, 253, 83, 0.15);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%);
+  }
+
+  .col-sm-4 .panel:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 16px 40px rgba(83, 253, 83, 0.25);
+    border-color: #53fd53;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
+  }
+
+  .col-sm-4 .panel-body {
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .col-sm-4 .panel-body img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(83, 253, 83, 0.3);
+    margin-bottom: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .col-sm-4 .panel:hover .panel-body img {
+    border-color: #53fd53;
+    box-shadow: 0 8px 20px rgba(83, 253, 83, 0.25);
+    transform: scale(1.02);
+  }
+
+  .col-sm-4 .panel-body h4 {
+    color: #53fd53;
+    font-weight: 700;
+    margin: 5px 0 12px 0;
+    font-size: 19px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .col-sm-4 .panel-body p {
+    color: #d9d9d9;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    flex-grow: 1;
+    opacity: 0.95;
+    transition: color 0.3s ease;
+  }
+
+  .col-sm-4 .panel:hover .panel-body p {
+    color: #fff;
+  }
+
+  .col-sm-4 .btn-success {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    padding: 11px 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    margin-top: auto;
+  }
+
+  .col-sm-4 .btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(83, 253, 83, 0.4);
+    background: linear-gradient(135deg, #63ff63 0%, #35d835 100%);
+  }
+
+  .col-sm-4 .btn-success:active {
+    transform: translateY(-1px);
+  }
+
+  /* Delivery and FAQ Section */
+  .col-md-6 .panel {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(83, 253, 83, 0.2);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 100%);
+  }
+
+  .col-md-6 .panel:hover {
+    transform: translateY(-8px);
+    border-color: #53fd53;
+    box-shadow: 0 16px 40px rgba(83, 253, 83, 0.2);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.1) 100%);
+  }
+
+  .col-md-6 .panel-heading {
+    background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+    color: #000;
+    border: none;
+    font-weight: 700;
+    border-radius: 13px 13px 0 0;
+    padding: 22px 25px;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .col-md-6 .panel-body {
+    background: rgba(255, 255, 255, 0.97) !important;
+    padding: 28px;
+    border-radius: 0 0 13px 13px;
+    backdrop-filter: blur(10px);
+  }
+
+  .col-md-6 .panel-body p {
+    color: #2c2c2c;
+    line-height: 1.9;
+    margin-bottom: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .col-md-6 .panel:hover .panel-body p {
+    color: #1a1a1a;
+  }
+
+  .col-md-6 .panel-body strong {
+    color: #53fd53;
+    font-weight: 700;
+  }
+
+  .col-md-6 .panel-body br + span {
+    display: block;
+    margin-top: 8px;
+    padding-left: 14px;
+    color: #444;
+  }
+
+  .col-md-6 .panel-body a {
+    color: #53fd53;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+  }
+
+  .col-md-6 .panel-body a:hover {
+    color: #2cbb2c;
+    border-bottom-color: #2cbb2c;
+    text-decoration: none;
+  }
+
+  .col-md-6 .panel-body a:active {
+    color: #16b33d;
+  }
+
+  /* Text-right buttons styling */
+  .text-right {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .text-right .btn-default {
+    background: transparent;
+    color: #53fd53;
+    border: 2px solid #53fd53;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .text-right .btn-default:hover {
+    background: #53fd53;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(83, 253, 83, 0.3);
+  }
+
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img class="logo" src="images/logo1.jpeg">
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="estate.html">Home</a></li>
+            <li><a href="cartegory.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="potfolio.html">Potfolio</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="cart.html">Cartegories</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Others</li>
+                <li><a href="login.html">Login</a></li>
+                  <li><a href="signup.html">Signup</a></li>
+                <li><a href="gallary.html">Gallary</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+              </ul>
+            </li>
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="glyphicon glyphicon-shopping-cart " href="cart.html">Cart</a>
+            </li>
+            <li><a class="glyphicon glyphicon-user" href="login.html"></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!-- Breadcrumb -->
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cartegory.html">Categories</a></li>
+            <li class="active">Shopping Cart</li>
+        </ol>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Cart Table -->
+            <div class="col-md-9">
+                <h2>Shopping Cart</h2>
+                <p class="lead">Review your items below.</p>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover cart-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img src="images/back2.jpeg" alt="Rose Flower" class="img-cart">
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>Rose Flower</h5>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>UGX19.99</td>
+                                <td>
+                                    <input type="number" class="form-control qty-input" value="1" min="1">
+                                </td>
+                                <td class="cart-total">UGX19.99</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm remove-item">Remove</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img src="images/image8.jpeg" alt="Lily Flower" class="img-cart">
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>Lily Flower</h5>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>UGX29.99</td>
+                                <td>
+                                    <input type="number" class="form-control qty-input" value="2" min="1">
+                                </td>
+                                <td class="cart-total">UGX59.98</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm remove-item">Remove</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <img src="images/image3.jpeg" alt="Tulip Flower" class="img-cart">
+                                        </div>
+                                        <div class="media-body">
+                                            <h5>Tulip Flower</h5>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>UGX99.99</td>
+                                <td>
+                                    <input type="number" class="form-control qty-input" value="1" min="1">
+                                </td>
+                                <td class="cart-total">UGX99.99</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm remove-item">Remove</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-right">
+                    <a href="cartegory.html" class="btn btn-default">Continue Shopping</a>
+                </div>
+            </div>
+
+            <!-- Cart Summary -->
+            <div class="col-md-3">
+                <div class="panel panel-default cart-summary">
+                    <div class="panel-heading">
+                        <h4>Order Summary</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Subtotal: <strong>UGX179.96</strong></p>
+                        <p>Shipping: <strong>UGX9.99</strong></p>
+                        <hr>
+                        <p>Total: <strong>$189.95</strong></p>
+                       <a href="checkout.html" class="btn btn-success btn-block btn-lg">Proceed to Checkout</a>
+                        <button class="btn btn-primary btn-block">Apply Coupon</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Products -->
+    <div class="container" style="margin-top: 50px; margin-bottom: 40px;">
+      <h3 style="color: #53fd53; margin-bottom: 30px; font-size: 32px; font-weight: 700; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); letter-spacing: 1px;">Recommended For You</h3>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <img src="images/image4.jpeg" class="img-responsive" alt="Bouquet" />
+              <h4>Signature Flower Bouquet</h4>
+              <p>Perfect for gift-giving and special occasions.</p>
+              <a href="cartegory.html" class="btn btn-success btn-xs">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <img src="images/image5.jpeg" class="img-responsive" alt="Gift Set" />
+              <h4>Wellness Gift Set</h4>
+              <p>Great for birthdays and wellness packages.</p>
+              <a href="cartegory.html" class="btn btn-success btn-xs">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <img src="images/image6.jpeg" class="img-responsive" alt="Plant" />
+              <h4>Indoor Plant</h4>
+              <p>Bring life to any room with low-maintenance plants.</p>
+              <a href="cartegory.html" class="btn btn-success btn-xs">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delivery & FAQ -->
+    <div class="container" style="margin-top: 60px; margin-bottom: 60px;">
+      <h3 style="color: #53fd53; margin-bottom: 35px; font-size: 32px; font-weight: 700; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); letter-spacing: 1px;">Delivery, Returns & Support</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading"><strong>Delivery & Returns</strong></div>
+            <div class="panel-body">
+              <p>• Free delivery on orders over UGX 100,000.</p>
+              <p>• Same-day delivery within Kampala (order before 2PM).</p>
+              <p>• 30-day return policy for non-perishable items.</p>
+              <p>• Support available 24/7 via <a href="mailto:flowerhub@gmail.com">flowerhub@gmail.com</a>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading"><strong>Shopping FAQ</strong></div>
+            <div class="panel-body">
+              <p><strong>Q:</strong> Can I change my order after checkout?<br><strong>A:</strong> Contact us within 30 minutes for edits.</p>
+              <p><strong>Q:</strong> Do you offer gift wrapping?<br><strong>A:</strong> Yes, add gift wrap at checkout.</p>
+              <p><strong>Q:</strong> Is international shipping available?<br><strong>A:</strong> We currently ship within Uganda only.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Contact</h3>
+              <a href="tel:+256754411788"><i class="fa fa-phone"></i> Phone: +256 754 411 788</a>
+              <a href="mailto:flowerhub@gmail.com"><i class="fa fa-envelope"></i> Email: flowerhub@gmail.com</a>
+              <a href="#"><i class="fa fa-map-marker"></i> Address: P.O.BOX 123, Acacia Avenue, Kampala(U)</a>
+          </div>
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Menu</h3>
+            <a href="estate.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallary.html">Gallery</a>
+            <a href="cart.html">Categories</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+  <!-- Newsletter Section -->
+      <div class="row newsletter-section">
+        <div class="col-md-8">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Get the latest updates on new flower arrivals, special offers, and gardening tips delivered to your inbox!</p>
+        </div>
+        <div class="col-md-4">
+          <form class="form-inline" role="form">
+            <div class="form-group" style="width: 100%;">
+              <input type="email" class="form-control" style="width: 70%; margin-right: 5px;" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-success">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+          <div class="col-sm-12 col-md-4 footer-col text-right">
+            <h3>© 2026 Flowerhub.com</h3>
+            <p>Helping nature, one tree at a time.</p>
+            <div class="social-media">
+              <a href="https://www.facebook.com/flowerhub" target="_blank" title="Follow us on Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="https://www.twitter.com/flowerhub" target="_blank" title="Follow us on Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/flowerhub" target="_blank" title="Follow us on Instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/256754411788" target="_blank" title="Chat with us on WhatsApp">
+                <i class="fa fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Load cart from localStorage
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            if (cart.length > 0) {
+                var tbody = $('.cart-table tbody');
+                
+                // Clear placeholder rows
+                tbody.html('');
+                
+                // Add products from localStorage
+                cart.forEach(function(product) {
+                    var price = product.price.replace('UGX', '').trim();
+                    var row = $('<tr>');
+                    row.html(
+                        '<td>' +
+                            '<div class="media">' +
+                                '<div class="media-left">' +
+                                    '<img src="' + product.image + '" alt="' + product.title + '" class="img-cart">' +
+                                '</div>' +
+                                '<div class="media-body">' +
+                                    '<h5>' + product.title + '</h5>' +
+                                '</div>' +
+                            '</div>' +
+                        '</td>' +
+                        '<td>' + product.price + '</td>' +
+                        '<td><input type="number" class="form-control qty-input" value="1" min="1"></td>' +
+                        '<td class="cart-total">' + product.price + '</td>' +
+                        '<td><button class="btn btn-danger btn-sm remove-item">Remove</button></td>'
+                    );
+                    tbody.append(row);
+                });
+            }
+            
+            // Cart functionality
+            $(document).on('change', '.qty-input', function() {
+                var row = $(this).closest('tr');
+                var priceText = row.find('td:nth-child(2)').text();
+                var price = parseFloat(priceText.replace('UGX', '').trim());
+                var qty = parseInt($(this).val());
+                var total = price * qty;
+                row.find('.cart-total').text('UGX' + total.toFixed(2));
+                updateGrandTotal();
+            });
+
+            $(document).on('click', '.remove-item', function() {
+                $(this).closest('tr').remove();
+                
+                // Update localStorage
+                var remainingProducts = [];
+                $('.cart-table tbody tr').each(function() {
+                    var title = $(this).find('h5').text();
+                    var price = $(this).find('td:nth-child(2)').text();
+                    remainingProducts.push({
+                        id: Date.now(),
+                        title: title,
+                        price: price,
+                        image: $(this).find('img').attr('src')
+                    });
+                });
+                localStorage.setItem('cart', JSON.stringify(remainingProducts));
+                
+                updateGrandTotal();
+            });
+
+            function updateGrandTotal() {
+                var subtotal = 0;
+                $('.cart-total').each(function() {
+                    var text = $(this).text();
+                    subtotal += parseFloat(text.replace('UGX', '').trim());
+                });
+                var shipping = 9.99;
+                var grandTotal = subtotal + shipping;
+                $('.cart-summary p strong').eq(0).text('UGX' + subtotal.toFixed(2));
+                $('.cart-summary p strong').eq(2).text('UGX' + grandTotal.toFixed(2));
+            }
+            
+            // Initial calculation
+            updateGrandTotal();
+        });
+    </script>
+</body>
+</html>
+

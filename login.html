@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pVn3f9zpmS4OqsfYJWS8EjmEboN3l6x6SU1AB2Juc1L3XNzq2B1xWZqUeWjT0KF6j0J1qf3Q5Wv0jzKc1N2G7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Login</title>
+  <style>
+    body {
+      padding-top: 70px;
+      font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/back2.jpeg);
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', 'Roboto', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(83, 253, 83, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(83, 253, 83, 0.1);
+    }
+
+    .navbar .navbar-brand img {
+      max-height: 56px;
+      width: auto;
+    }
+
+    .navbar .navbar-nav > li > a {
+      color: #fff;
+    }
+
+    .navbar .navbar-nav > li > a:hover {
+      color: #53fd53;
+    }
+
+    /* center main nav links */
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
+
+    .navbar .navbar-nav {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-nav > li {
+      float: none;
+      display: inline-block;
+    }
+
+    .navbar .navbar-toggle .icon-bar {
+      background-color: #fff;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.15);
+      box-shadow: 0 6px 20px rgba(83, 253, 83, 0.4);
+    }
+
+    .auth-container {
+      max-width: 420px;
+      margin: 100px auto 60px;
+      padding: 40px 35px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(10, 10, 10, 0.7) 100%);
+      border: 2px solid rgba(83, 253, 83, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 
+                  0 0 30px rgba(83, 253, 83, 0.1),
+                  inset 0 1px 0 rgba(83, 253, 83, 0.2);
+      color: #fff;
+      backdrop-filter: blur(5px);
+    }
+
+    .auth-container h2 {
+      margin-bottom: 28px;
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .auth-container h2:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #53fd53 50%, transparent 100%);
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(83, 253, 83, 0.2);
+      color: #fff;
+      padding: 12px 16px;
+      font-size: 14px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      margin-bottom: 16px;
+    }
+
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-control:focus {
+      background: rgba(83, 253, 83, 0.1);
+      border-color: #53fd53;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(83, 253, 83, 0.3), inset 0 1px 0 rgba(83, 253, 83, 0.2);
+      outline: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+      border: none;
+      color: #000;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 14px;
+      box-shadow: 0 8px 20px rgba(83, 253, 83, 0.3);
+      width: 100%;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #63ff63 0%, #35d835 100%);
+      box-shadow: 0 12px 30px rgba(83, 253, 83, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 15px rgba(83, 253, 83, 0.3);
+    }
+
+    /* Shared footer styling */
+    .footer {
+      margin-top: 80px;
+      width: 100%;
+      padding: 60px 1.6% 40px;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
+      color: #fff;
+      border-top: 3px solid rgba(83, 253, 83, 0.4);
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(83, 253, 83, 0.2);
+    }
+
+    .footer .footer-col {
+      margin-bottom: 40px;
+      padding: 0 15px;
+    }
+
+    .footer h3 {
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      color: #53fd53;
+      font-size: 18px;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .footer h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, #53fd53 0%, transparent 100%);
+      border-radius: 2px;
+    }
+
+    .footer a {
+      display: block;
+      color: #a8d5a8;
+      margin-bottom: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer a:hover {
+      color: #53fd53;
+      padding-left: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .footer p {
+      color: #a8d5a8;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .newsletter-section {
+      background: linear-gradient(135deg, rgba(83, 253, 83, 0.08) 0%, rgba(83, 253, 83, 0.04) 100%);
+      border: 2px solid rgba(83, 253, 83, 0.25);
+      border-radius: 12px;
+      padding: 30px;
+      margin: 30px 0;
+      box-shadow: 0 8px 25px rgba(83, 253, 83, 0.1), inset 0 1px 0 rgba(83, 253, 83, 0.1);
+    }
+
+    .newsletter-section h3 {
+      color: #53fd53;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .newsletter-section p {
+      color: #a8d5a8;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .newsletter-section input {
+      background: rgba(0, 0, 0, 0.4);
+      border: 2px solid rgba(83, 253, 83, 0.3);
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-size: 13px;
+    }
+
+    .newsletter-section input:focus {
+      background: rgba(0, 0, 0, 0.6);
+      border-color: #53fd53;
+      box-shadow: 0 0 15px rgba(83, 253, 83, 0.2);
+      outline: none;
+    }
+
+    .newsletter-section input::placeholder {
+      color: #666;
+    }
+
+    .newsletter-section .btn-success {
+      background: linear-gradient(135deg, #53fd53 0%, #2cbb2c 100%);
+      border: none;
+      padding: 10px 25px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+      font-size: 13px;
+      box-shadow: 0 4px 15px rgba(83, 253, 83, 0.2);
+      color: #000;
+    }
+
+    .newsletter-section .btn-success:hover {
+      background: linear-gradient(135deg, #2cbb2c 0%, #1a7a1a 100%);
+      box-shadow: 0 6px 25px rgba(83, 253, 83, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Social Media Icons */
+    .social-media {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .social-media a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(83, 253, 83, 0.15) 0%, rgba(83, 253, 83, 0.08) 100%);
+      border: 2px solid rgba(83, 253, 83, 0.4);
+      color: #53fd53;
+      font-size: 22px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(83, 253, 83, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .social-media a:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, rgba(83, 253, 83, 0.2), transparent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .social-media a:hover:before {
+      width: 100px;
+      height: 100px;
+    }
+
+    .social-media a i {
+      position: relative;
+      z-index: 1;
+      transition: all 0.4s ease;
+    }
+
+    .social-media a:hover {
+      border-color: #53fd53;
+      color: #000;
+      transform: translateY(-6px) rotate(5deg) scale(1.12);
+      box-shadow: 0 12px 30px rgba(83, 253, 83, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .social-media a:hover i {
+      transform: scale(1.2);
+    }
+
+    .social-media a:active {
+      transform: translateY(-2px) rotate(5deg) scale(1.06);
+      box-shadow: 0 6px 15px rgba(83, 253, 83, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    .social-media a[href*="facebook"]:hover {
+      background: linear-gradient(135deg, #1877F2 0%, #0A66C2 100%);
+      border-color: #1877F2;
+    }
+
+    .social-media a[href*="twitter"]:hover {
+      background: linear-gradient(135deg, #1DA1F2 0%, #1a8917 100%);
+      border-color: #1DA1F2;
+    }
+
+    .social-media a[href*="instagram"]:hover {
+      background: linear-gradient(135deg, #E1306C 0%, #405DE6 100%);
+      border-color: #E1306C;
+    }
+
+    .social-media a[href*="whatsapp"]:hover {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      border-color: #25D366;
+    }
+
+    @keyframes iconGlow {
+      0% {
+        box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(83, 253, 83, 0.4), 0 4px 15px rgba(83, 253, 83, 0.2);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(83, 253, 83, 0.2), 0 4px 15px rgba(83, 253, 83, 0.1);
+      }
+    }
+
+    .social-media a {
+      animation: iconGlow 3s ease-in-out infinite;
+    }
+
+    .social-media a:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .social-media a:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .social-media a:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    .footer .social {
+      margin-top: 12px;
+    }
+
+    .footer .social a {
+      display: inline-block;
+      margin-right: 12px;
+      font-size: 20px;
+      color: #16b33d;
+    }
+
+    .footer .social a:hover {
+      color: #53fd53;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img class="logo" src="images/logo1.jpeg">
+        </a>
+      </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img class="logo" src="images/logo1.jpeg">
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="estate.html">Home</a></li>
+          <li><a href="cartegory.html">Categories</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="potfolio.html">Potfolio</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="cart.html">Cartegories</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Others</li>
+              <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+              <li><a href="gallary.html">Gallary</a></li>
+              <li><a href="cart.html">Cart</a></li>
+              <li><a href="checkout.html">Checkout</a></li>
+            </ul>
+          </li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="glyphicon glyphicon-shopping-cart " href="cart.html">Cart</a>
+          </li>
+          <li><a class="glyphicon glyphicon-user" href="login.html"></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+    </div>
+  </nav>
+
+  <div class="container auth-container">
+    <h2 class="text-center">Login</h2>
+    <form method="post" action="login.php">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Log in</button>
+      <p class="text-center" style="margin-top:12px;">
+        Don't have an account? <a href="signup.html" style="color:#53fd53;">Sign up</a>
+      </p>
+    </form>
+  </div>
+
+  <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Contact</h3>
+              <a href="tel:+256754411788"><i class="fa fa-phone"></i> Phone: +256 754 411 788</a>
+              <a href="mailto:flowerhub@gmail.com"><i class="fa fa-envelope"></i> Email: flowerhub@gmail.com</a>
+              <a href="#"><i class="fa fa-map-marker"></i> Address: P.O.BOX 123, Acacia Avenue, Kampala(U)</a>
+          </div>
+          <div class="col-sm-12 col-md-4 footer-col">
+            <h3>Menu</h3>
+            <a href="estate.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallary.html">Gallery</a>
+            <a href="cart.html">Categories</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+  <!-- Newsletter Section -->
+      <div class="row newsletter-section">
+        <div class="col-md-8">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Get the latest updates on new flower arrivals, special offers, and gardening tips delivered to your inbox!</p>
+        </div>
+        <div class="col-md-4">
+          <form class="form-inline" role="form">
+            <div class="form-group" style="width: 100%;">
+              <input type="email" class="form-control" style="width: 70%; margin-right: 5px;" placeholder="Enter your email" required>
+              <button type="submit" class="btn btn-success">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+          <div class="col-sm-12 col-md-4 footer-col text-right">
+            <h3>© 2026 Flowerhub.com</h3>
+            <p>Helping nature, one tree at a time.</p>
+            <div class="social-media">
+              <a href="https://www.facebook.com/flowerhub" target="_blank" title="Follow us on Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="https://www.twitter.com/flowerhub" target="_blank" title="Follow us on Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/flowerhub" target="_blank" title="Follow us on Instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/256754411788" target="_blank" title="Chat with us on WhatsApp">
+                <i class="fa fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+    crossorigin="anonymous"></script>
+  <script src="js/bootstrap.js"></script>
+</body>
+</html>
